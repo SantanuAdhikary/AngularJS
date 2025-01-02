@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controller</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="my_secondApp" ng-controller="myController">
+
+        <input type="text" ng-model="quantity">
+        <input type="text" ng-model="price">
+        <p>{{quantity * price}}</p>
+        <h1> final price : {{ quantity*price - discount | currency}}</h1>
+
+        <h2> all the subjects</h2>
+        <ul>
+            <li ng-repeat=" x in subjects ">
+
+                {{x}}
+            </li>
+        </ul>
+
+        <table border="1" width="400">
+
+            <tr>
+                <th>Subject</th>
+                <th>trainer</th>
+            </tr>
+            <tr ng-repeat="x in course">
+
+                <td > {{x.subject | uppercase }} </td>
+                <td>{{x.trainer | lowercase}}</td>
+            </tr>
+        </table>
+
+     
+
+    </div>
+
+    <script>
+        var module = angular.module("my_secondApp",[])
+
+        module.controller("myController", function($scope ){
+
+            $scope.quantity = 3
+            $scope.price = 30
+            $scope.discount = 10
+            $scope.subjects = ["html","css","js","react","angular"]
+
+            $scope.msg = "how are you"
+
+            $scope.course = [
+                {
+                    subject :"html",
+                    trainer:"ABC"
+                },
+                {
+                    subject :"css",
+                    trainer:"vk"
+                },
+                {
+                      subject :"js",
+                    trainer:"rohit"
+                },
+                {
+                      subject :"angular",
+                    trainer:"msd"
+                }
+            ]
+
+           
+           
+        })
+    </script>
+</body>
+</html>

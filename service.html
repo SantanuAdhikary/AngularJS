@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>services</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+
+    <h1> services in angular</h1>
+
+    <div ng-app="my_thirdApp" ng-controller="my_controller">
+
+        <h2> {{msg}}</h2>
+
+        <h2>{{time}}</h2>
+
+    </div>
+    
+    <script>
+
+        var module = angular.module("my_thirdApp",[])
+
+        module.controller("my_controller", function($scope , $timeout, $interval){
+
+            $scope.msg = "hello how are you ?"
+          
+
+            $timeout(function(){
+                $scope.msg = "I am fine"
+            }, 4000)
+
+
+             $scope.time = new Date().toLocaleTimeString()
+
+             $interval(function()
+            {
+                $scope.time = new Date().toLocaleTimeString()
+            },1000)
+
+        })
+    </script>
+</body>
+</html>
